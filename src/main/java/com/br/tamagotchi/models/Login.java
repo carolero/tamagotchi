@@ -18,9 +18,11 @@ public class Login implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
+	
 	@NotBlank(message = "Apelido não pode ficar em branco")
 	@Size(min = 4, message = "Apelido tem que ter 4 caracters")
 	private String apelido;
+	
 	@NotBlank(message = "Senha não pode ficar em branco")
 	@Size(min = 8, message = "Senha tem que ter 8 caracteres")
 	private String senha;
