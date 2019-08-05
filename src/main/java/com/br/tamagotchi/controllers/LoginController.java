@@ -28,24 +28,11 @@ public class LoginController {
 		ModelAndView modelAndView = new ModelAndView("login.html");
 		return modelAndView;
 	}
-	@PostMapping("/cadastro/login")
-	public ModelAndView cadastrarLogin(@Valid Usuario user, BindingResult bindingUser, @Valid Login login,
-			BindingResult bindingLogin) {
-		ModelAndView modelAndView = new ModelAndView("cadastro.html");
-		if (bindingUser.hasErrors() || bindingLogin.hasErrors()) {
-			List<String>mensagens = new ArrayList<String>();
-			for (ObjectError objerro : bindingUser.getAllErrors()) {
-				mensagens.add(objerro.getDefaultMessage());
-			}
-			for (ObjectError objerro : bindingLogin.getAllErrors()) {
-				mensagens.add(objerro.getDefaultMessage());
-			}
-			modelAndView.addObject("mensagens", mensagens);
-		} else {
-			modelAndView.addObject("mensagens", loginService.cadastrarLogin(user, login, null));
-
-		}
-
-		return modelAndView;
+	
+	@PostMapping("/login")
+	public String logar(Login login) {
+		ModelAndView modelAndView = new ModelAndView();
+		Login objetoLogin = loginService.buscarLogin(login);
+		return "redirect:/home";
 	}
 }

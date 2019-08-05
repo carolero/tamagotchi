@@ -12,22 +12,18 @@ import com.br.tamagotchi.repositories.LoginRepository;
 
 @Service
 public class LoginService {
-	
+
 	@Autowired
 	private LoginRepository loginRepo;
-	
+
 	public String cadastrarLogin(Usuario user, Login login, @Valid Pet pet) {
 		login.setUsuario(user);
 		loginRepo.save(login);
 		return "Login cadastrado";
-		
+
 	}
-	
-	public void upadate(Login login) {
-		loginRepo.save(login);
-	}
-	
-	public Login buscarPorApelidoESenha(Login login) {
+
+	public Login buscarLogin(Login login) {
 		return loginRepo.findByApelidoAndSenha(login.getApelido(), login.getSenha()).get();
 	}
 }
