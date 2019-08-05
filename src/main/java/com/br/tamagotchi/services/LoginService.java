@@ -26,4 +26,7 @@ public class LoginService {
 	public Login buscarLogin(Login login) {
 		return loginRepo.findByApelidoAndSenha(login.getApelido(), login.getSenha()).get();
 	}
+
+
+
 }
