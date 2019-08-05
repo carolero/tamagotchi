@@ -15,27 +15,27 @@ import javax.validation.constraints.Size;
 @Entity
 public class Pet implements Serializable {
 	private static final long serialVersionUID = 1L;
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	
+
 	@NotNull
 	@NotBlank(message = "Nome do pet é obrigatório")
 	@Size(min = 2, message = "O nome do seu pet precisa ter pelo menos 2 letras")
 	private String nomePet;
-	
+
 	private int fome = 0;
 	private int xpPet = 0;
 	private int levelPet = 0;
-	
+
 	@OneToOne(cascade = {CascadeType.ALL})
 	private Usuario usuario;
 
 	public Pet() {
-		
+
 	}
-	
+
 	public Integer getId() {
 		return id;
 	}
@@ -72,5 +72,5 @@ public class Pet implements Serializable {
 	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
 	}
-	
+
 }

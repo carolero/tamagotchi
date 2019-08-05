@@ -15,6 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.br.tamagotchi.models.Login;
 import com.br.tamagotchi.models.Pet;
 import com.br.tamagotchi.models.Usuario;
+import com.br.tamagotchi.services.LoginService;
 import com.br.tamagotchi.services.PetService;
 import com.br.tamagotchi.services.UsuarioService;
 
