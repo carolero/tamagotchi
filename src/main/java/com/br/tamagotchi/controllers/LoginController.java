@@ -40,6 +40,6 @@ public class LoginController {
 			modelAndView.addObject("mensagem", naoEncontradoLogin);
 		}
 
-		return "redirect:/pet";
+		return "redirect:/";
 	}
 }

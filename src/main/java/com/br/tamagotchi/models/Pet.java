@@ -25,6 +25,7 @@ public class Pet implements Serializable {
 	@Size(min = 2, message = "O nome do seu pet precisa ter pelo menos 2 letras")
 	private String nomePet;
 
+	private String imagemPet = "http://dragon-mania-legends-wiki.mobga.me/images/7/7c/Ash_Dragon_Egg.png";
 	private int fome = 0;
 	private int xpPet = 0;
 	private int levelPet = 0;
@@ -35,7 +36,7 @@ public class Pet implements Serializable {
 	public Pet() {
 
 	}
-
+	
 	public Integer getId() {
 		return id;
 	}
@@ -48,6 +49,14 @@ public class Pet implements Serializable {
 	public void setNomePet(String nomePet) {
 		this.nomePet = nomePet;
 	}
+	public String getImagemPet() {
+		return imagemPet;
+	}
+
+	public void setImagemPet(String imagemPet) {
+		this.imagemPet = imagemPet;
+	}
+
 	public int getFome() {
 		return fome;
 	}

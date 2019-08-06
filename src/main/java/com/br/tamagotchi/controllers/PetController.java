@@ -17,7 +17,7 @@ public class PetController {
 	@Autowired
 	private PetService petService;
 	
-	@GetMapping("/pet")
+	@GetMapping("/")
 	public ModelAndView exibirFormulario(HttpSession session) {
 		if(session.getAttribute("usuario") != null) {
 			ModelAndView modelAndView = new ModelAndView("pagina-pet.html");
@@ -29,7 +29,7 @@ public class PetController {
 			return modelAndView;
 		} else {
 			ModelAndView modelAndView = new ModelAndView("redirect:/login");
-			session.setAttribute("url", "/pet");
+			session.setAttribute("url", "/");
 			return modelAndView;
 		}
 	}
