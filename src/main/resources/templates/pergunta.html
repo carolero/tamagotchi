@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+   <div th:each="msg : ${mensagem}">
+        <p th:text="${msg}"></p>
+    </div>
+
+    <div th:each="perg : ${pergunta}">
+        <h1 th:text="${perg.quest}"></h1>
+    </div>
+    <form method="POST">
+        <p>Resposta: <input type="text" name="resposta"></p>
+        <button type="submit">responder</button>
+    </form>
+    <br>
+    <a href="/">Voltar</a>
+
+</body>
+</html>
