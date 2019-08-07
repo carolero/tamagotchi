@@ -39,13 +39,19 @@ public class PerguntaService {
 		return pontos;
 	}
 	
+	public boolean verificarIdPergunta(Usuario usuario, Integer idPergunta) {
+		Usuario obj = usuarioRepository.findById(usuario.getId()).get();
+		return obj.getPerguntasRespondidas().contains(idPergunta);
+	}
+	
 	public String verificarResposta(int idPergunta, String resposta, Usuario usuario) {
 		Pergunta pergunta = perguntaRepository.findById(idPergunta).get();
 		if(pergunta.getResposta().equalsIgnoreCase(resposta)) {
 			int pontosGanhos = gerarPontuacao();
-			usuario.setPontos(usuario.getPontos() + pontosGanhos);
-			usuario.getPerguntasRespondidas().add(idPergunta);
-			usuarioRepository.save(usuario);
+			Usuario user = usuarioRepository.findById(usuario.getId()).get();
+			user.getPerguntasRespondidas().add(idPergunta);
+			user.setPontos(usuario.getPontos() + pontosGanhos);
+			usuarioRepository.save(user);
 			return "Parabéns! Está certo :)";
 		} else {
 			return "Errou! Que pena :(";

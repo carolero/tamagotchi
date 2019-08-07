@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -31,6 +32,9 @@ public class Usuario implements Serializable {
 	private Integer level = 0;
 	private Integer pontos = 0;
 	
+	private boolean administrador = false;
+	
+	@ElementCollection
 	private List<Integer> perguntasRespondidas = new ArrayList<Integer>();
 
 	@OneToOne(mappedBy = "usuario")
@@ -42,7 +46,7 @@ public class Usuario implements Serializable {
 	public Usuario() {
 
 	}
-
+	
 	public Integer getId() {
 		return id;
 	}
@@ -91,6 +95,14 @@ public class Usuario implements Serializable {
 		this.pontos = pontos;
 	}
 	
+	public boolean isAdministrador() {
+		return administrador;
+	}
+
+	public void setAdministrador(boolean administrador) {
+		this.administrador = administrador;
+	}
+
 	public List<Integer> getPerguntasRespondidas() {
 		return perguntasRespondidas;
 	}
@@ -113,5 +125,14 @@ public class Usuario implements Serializable {
 
 	public void setPet(Pet pet) {
 		this.pet = pet;
+	}
+	
+	@Override
+	public String toString() {
+		String modelo = "OLa";
+		modelo += this.nome;
+		modelo += this.perguntasRespondidas;
+		
+		return modelo;
 	}
 }

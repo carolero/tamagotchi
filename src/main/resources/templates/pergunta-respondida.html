@@ -8,24 +8,10 @@
 </head>
 <body>
 
-   <div th:each="msg : ${mensagem}">
-        <p th:text="${msg}"></p>
-    </div>
-    
 	<div th:each="erro : ${erro}">
         <h1 th:text="${erro}"></h1>
+        <a href="/">Voltar</a>
     </div>
-    
-    <div th:each="perg : ${pergunta}">
-        <h1 th:text="${perg.quest}"></h1>
-    </div>
-    
-    <form method="POST">
-        <p>Resposta: <input type="text" name="resposta"></p>
-        <button type="submit">responder</button>
-    </form>
-    <br>
-    <a href="/">Voltar</a>
 
 </body>
 </html>
