@@ -44,6 +44,7 @@ public class PerguntaService {
 			int pontosUsuario = usuario.getPontos();
 			usuario.setPontos(pontosUsuario + pontosGanhos);
 			usuarioRepository.save(usuario);
+			perguntaRepository.deleteById(idPergunta);
 			return "Parabéns! Está certo :)";
 		} else {
 			return "Errou! Que pena :(";
