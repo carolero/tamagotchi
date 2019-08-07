@@ -56,7 +56,7 @@ public class UsuarioController {
 			return modelAndView;
 		} else {
 			modelAndView.addObject("mensagens", petService.cadastrarPet(usuario, login, pet));
-			modelAndView.addObject("mensagens", loginService.cadastrarLogin(usuario, login, pet));
+			modelAndView.addObject("mensagens", loginService.cadastrarLogin(usuario, login));
 		}
 		return modelAndView;
 	}
