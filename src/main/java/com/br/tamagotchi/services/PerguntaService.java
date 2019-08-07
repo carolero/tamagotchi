@@ -37,13 +37,12 @@ public class PerguntaService {
 		return pontos;
 	}
 	
-	public String verificarResposta(int idPergunta, String resposta, int idUsuario, Usuario usuario) {
+	public String verificarResposta(int idPergunta, String resposta, Usuario usuario) {
 		Pergunta pergunta = perguntaRepository.findById(idPergunta).get();
 		if(pergunta.getResposta().equalsIgnoreCase(resposta)) {
 			int pontosGanhos = gerarPontuacao();
 			int pontosUsuario = usuario.getPontos();
 			usuario.setPontos(pontosUsuario + pontosGanhos);
-			usuario.setId(idUsuario);
 			usuarioRepository.save(usuario);
 			return "Parabéns! Está certo :)";
 		} else {

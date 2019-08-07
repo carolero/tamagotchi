@@ -21,11 +21,11 @@ public class PetController {
 	public ModelAndView exibirFormulario(HttpSession session) {
 		if(session.getAttribute("usuario") != null) {
 			ModelAndView modelAndView = new ModelAndView("pagina-pet.html");
-			Login login = (Login) session.getAttribute("usuario");
-			String mensagem = "Olá " + login.getUsuario().getNome();
+			Usuario usuario = (Usuario) session.getAttribute("usuario");
+			String mensagem = "Olá " + usuario.getNome();
 			modelAndView.addObject("mensagem", mensagem);
-			modelAndView.addObject("usuario", login.getUsuario());
-			modelAndView.addObject("pet", login.getUsuario().getPet());
+			modelAndView.addObject("usuario", usuario);
+			modelAndView.addObject("pet", usuario.getPet());
 			return modelAndView;
 		} else {
 			ModelAndView modelAndView = new ModelAndView("redirect:/login");
