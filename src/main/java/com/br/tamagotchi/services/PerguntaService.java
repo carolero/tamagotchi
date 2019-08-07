@@ -1,5 +1,7 @@
 package com.br.tamagotchi.services;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,10 +43,9 @@ public class PerguntaService {
 		Pergunta pergunta = perguntaRepository.findById(idPergunta).get();
 		if(pergunta.getResposta().equalsIgnoreCase(resposta)) {
 			int pontosGanhos = gerarPontuacao();
-			int pontosUsuario = usuario.getPontos();
-			usuario.setPontos(pontosUsuario + pontosGanhos);
+			usuario.setPontos(usuario.getPontos() + pontosGanhos);
+			usuario.getPerguntasRespondidas().add(idPergunta);
 			usuarioRepository.save(usuario);
-			perguntaRepository.deleteById(idPergunta);
 			return "Parabéns! Está certo :)";
 		} else {
 			return "Errou! Que pena :(";

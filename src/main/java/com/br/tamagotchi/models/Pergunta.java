@@ -25,7 +25,7 @@ public class Pergunta implements Serializable {
 	@NotNull
 	@NotBlank(message = "O campo resposta é obrigatório")
 	private String resposta;
-	
+		
 	public Pergunta() {
 		
 	}
