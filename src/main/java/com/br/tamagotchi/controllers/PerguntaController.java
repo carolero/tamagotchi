@@ -71,7 +71,7 @@ public class PerguntaController {
 	@PostMapping("/pergunta/{idPergunta}")
 	public ModelAndView verificarResposta(@PathVariable int idPergunta, String resposta, HttpSession session) {
 		ModelAndView modelAndView = new ModelAndView("pergunta.html");
-		Usuario usuario = (Usuario) session.getAttribute("login");
+		Usuario usuario = (Usuario) session.getAttribute("usuario");
 		modelAndView.addObject("perguntas", perguntaService.mostrarPergunta(idPergunta));
 		modelAndView.addObject("mensagem", perguntaService.verificarResposta(idPergunta, resposta, usuario));
 		return modelAndView;
