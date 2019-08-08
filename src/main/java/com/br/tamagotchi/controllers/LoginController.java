@@ -32,7 +32,7 @@ public class LoginController {
 
 		Login objetoLogin = loginService.buscarLogin(login);
 		if ( objetoLogin != null) {
-			session.setAttribute("usuario", objetoLogin);
+			session.setAttribute("usuario", objetoLogin.getUsuario());
 			String mensagemDeSaudacao = "Olá, seja bem vindo " + objetoLogin.getApelido(); 
 			modelAndView.addObject("mensagem", mensagemDeSaudacao);
 		}else {
