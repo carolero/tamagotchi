@@ -18,15 +18,12 @@ import org.springframework.web.servlet.ModelAndView;
 import com.br.tamagotchi.models.Pergunta;
 import com.br.tamagotchi.models.Usuario;
 import com.br.tamagotchi.services.PerguntaService;
-import com.br.tamagotchi.services.UsuarioService;
 
 @Controller
 public class PerguntaController {
 
 	@Autowired
 	private PerguntaService perguntaService;
-	@Autowired
-	private UsuarioService usuarioService;
 
 	@GetMapping("/cadastrar/pergunta")
 	public ModelAndView exibirFormularioCadastroPergunta(HttpSession session) {
@@ -65,7 +62,7 @@ public class PerguntaController {
 	@PostMapping("/cadastrar/pergunta")
 	public ModelAndView cadastrarPergunta(@Valid Pergunta pergunta, BindingResult binPergunta, HttpSession session) {
 		Usuario usuario = (Usuario)session.getAttribute("usuario");
-		if(usuario != null &&  usuario.isAdministrador()) {
+		if(usuario != null) {
 			ModelAndView modelAndView = new ModelAndView("cadastrar-pergunta.html");
 			if (binPergunta.hasErrors()) {
 				List<String> mensagens = new ArrayList<String>();

@@ -12,16 +12,7 @@
 	<div th:each="msg : ${mensagem}">
 		<p th:text="${msg}"></p>
 	</div>
-
-    <h1>PET</h1>
-    <p th:text="${usuario.nome}"></p>
-    <p th:text="${pet.nomePet}"></p>
-    <p th:text="${usuario.pontos}"></p>
-
-    <img src="" th:attr="src=@{${pet.imagemPet}}" alt="">
-
-    <!-- <a href="" th:attr="href=@{'/pergunta/'+{id}(id=${idPergunta)}}">Ir para perguntas</a> -->
-    <a th:href="@{/pergunta/{id}(id=${idPergunta})}">Ir para perguntas</a>
+    <a href="/">voltar</a>
 
 </body>
 </html>

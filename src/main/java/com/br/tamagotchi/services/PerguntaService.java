@@ -1,7 +1,5 @@
 package com.br.tamagotchi.services;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Random;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +21,12 @@ public class PerguntaService {
 	public String cadastrarPergunta(Pergunta pergunta) {
 		perguntaRepository.save(pergunta);
 		return "Pergunta cadastrada";
+	}
+	
+	public int sortearPergunta() {
+		Random random = new Random();
+		int pergunta = random.nextInt((int) perguntaRepository.count())+1;
+		return pergunta;
 	}
 	
 	public Pergunta mostrarPergunta(int id) {
@@ -52,16 +56,10 @@ public class PerguntaService {
 			user.getPerguntasRespondidas().add(idPergunta);
 			user.setPontos(usuario.getPontos() + pontosGanhos);
 			usuarioRepository.save(user);
-			return "Parabéns! Está certo :)";
+			return "Parabéns! Está certo :)" + pontosGanhos;
 		} else {
 			return "Errou! Que pena :(";
 		}
 	}
-	
-	public void deletarPergunta(int id) {
-		perguntaRepository.deleteById(id);
-	}
-	
-	
 
 }
