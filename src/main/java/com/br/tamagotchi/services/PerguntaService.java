@@ -23,10 +23,15 @@ public class PerguntaService {
 		return "Pergunta cadastrada";
 	}
 	
-	public int sortearPergunta() {
+	public Integer sortearPergunta() {
 		Random random = new Random();
-		int pergunta = random.nextInt((int) perguntaRepository.count())+1;
-		return pergunta;
+		try {
+			int pergunta = random.nextInt((int) perguntaRepository.count())+1;
+			return pergunta;
+		}
+		catch (Exception e) {
+			return null;
+		}
 	}
 	
 	public Pergunta mostrarPergunta(int id) {
