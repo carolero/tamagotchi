@@ -22,6 +22,10 @@
 
     <!-- <a href="" th:attr="href=@{'/pergunta/'+{id}(id=${idPergunta)}}">Ir para perguntas</a> -->
     <a th:href="@{/pergunta/{id}(id=${idPergunta})}">Ir para perguntas</a>
+    <form action="/alimentar" method="GET">
+        <button>Alimentar</button>
+    </form>
+    
 
 </body>
 </html>
