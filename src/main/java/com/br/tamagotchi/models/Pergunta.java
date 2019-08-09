@@ -7,8 +7,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.NotBlank;
-
-import com.sun.istack.internal.NotNull;
+import javax.validation.constraints.NotNull;
 
 @Entity
 public class Pergunta implements Serializable {

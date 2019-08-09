@@ -25,10 +25,11 @@ public class Pet implements Serializable {
 	@Size(min = 2, message = "O nome do seu pet precisa ter pelo menos 2 letras")
 	private String nomePet;
 
-	private String imagemPet = "http://dragon-mania-legends-wiki.mobga.me/images/7/7c/Ash_Dragon_Egg.png";
+	private String imagemPet = "/img/nivel1.png";
 	private int fome = 0;
 	private int xpPet = 0;
 	private int levelPet = 0;
+	private boolean evoluido = false;
 
 	@OneToOne(cascade = {CascadeType.ALL})
 	private Usuario usuario;
@@ -81,5 +82,17 @@ public class Pet implements Serializable {
 	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
 	}
+	
+	public String tentarEvoluir() {
+		if(xpPet == 0) {
+			this.evoluido = true;
+			this.imagemPet = "/img/nivel2.jpg";
+			return "Pet evoluido";
+		} 
+		
+		return "Não pode evoluir";
+		
+	}
+	
 
 }

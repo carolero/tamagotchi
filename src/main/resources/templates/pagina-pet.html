@@ -19,13 +19,18 @@
     <p th:text="${usuario.pontos}"></p>
 
     <img src="" th:attr="src=@{${pet.imagemPet}}" alt="">
-
+	
     <!-- <a href="" th:attr="href=@{'/pergunta/'+{id}(id=${idPergunta)}}">Ir para perguntas</a> -->
     <a th:href="@{/pergunta/{id}(id=${idPergunta})}">Ir para perguntas</a>
+
     <form action="/alimentar" method="GET">
         <button>Alimentar</button>
     </form>
-    
 
+    
+    <form action="/evoluir" method="POST" >
+        <button>Evoluir</button>
+    </form>
+	
 </body>
 </html>
