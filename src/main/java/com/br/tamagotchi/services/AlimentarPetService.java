@@ -1,4 +1,4 @@
-package com.br.tamagotchi.Service;
+package com.br.tamagotchi.services;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,7 +15,7 @@ public class AlimentarPetService {
 	@Autowired 
 	private PetRepository petRepository;
 	
-	public String alimentarPet(Usuario usuario) {
+	public String tentarAlimentarPet(Usuario usuario) {
 		int pontosParaAlimentar = 6;
 		int diminuirFome = 2;
 		Pet pet = usuario.getPet();
