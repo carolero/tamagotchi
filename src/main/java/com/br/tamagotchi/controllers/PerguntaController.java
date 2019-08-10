@@ -43,7 +43,7 @@ public class PerguntaController {
 		if (session.getAttribute("usuario") != null) {
 			Usuario usuario = (Usuario) session.getAttribute("usuario");
 			ModelAndView modelAndView = new ModelAndView("pergunta.html");
-			if (perguntaService.verificarIdPergunta(usuario, idPergunta)) {
+			if (perguntaService.verificarSePerguntaFoiRespondida(usuario, idPergunta)) {
 				ModelAndView modelAndViewRespondido = new ModelAndView("pergunta-respondida.html");
 				modelAndViewRespondido.addObject("erro", "Essa pergunta já foi respondida!");
 				return modelAndViewRespondido;

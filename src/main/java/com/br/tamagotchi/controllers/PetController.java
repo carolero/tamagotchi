@@ -19,7 +19,7 @@ import com.br.tamagotchi.services.UsuarioService;
 @Controller
 public class PetController {
 	@Autowired
-	private AlimentarPetService AlimentarPetService;
+	private AlimentarPetService alimentarPetService;
 	@Autowired
 	private PerguntaService perguntaService;
 	@Autowired
@@ -49,16 +49,16 @@ public class PetController {
 	public ModelAndView tentarAlimentarPet(HttpSession session) {
 		ModelAndView modelAndView = new ModelAndView("redirect:/");
 		Usuario usuario = (Usuario) session.getAttribute("usuario");
-		AlimentarPetService.tentarAlimentarPet(usuario);
+		modelAndView.addObject("mensagem", alimentarPetService.tentarAlimentarPet(usuario));
 		return modelAndView;
 	}
 
 	@GetMapping("/evoluir")
 	public ModelAndView evoluir(HttpSession session) {
-		ModelAndView model = new ModelAndView("redirect:/");
+		ModelAndView modelAndView = new ModelAndView("redirect:/");
 		Usuario usuario = (Usuario) session.getAttribute("usuario");
-		petService.evoluir(usuario.getPet().getId());
-		return model;
+		modelAndView.addObject("mensagem", petService.evoluir(usuario.getPet().getId()));
+		return modelAndView;
 		
 	}
 }

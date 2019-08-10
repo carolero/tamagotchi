@@ -16,7 +16,9 @@
     <h1>PET</h1>
     <p th:text="${usuario.nome}"></p>
     <p th:text="${pet.nomePet}"></p>
-    <p th:text="${usuario.pontos}"></p>
+    <p th:text="fome + ${pet.fome}"></p>
+    <p th:text="xp + ${pet.xpPet}"></p>
+    <p th:text="pontos + ${usuario.pontos}"></p>
 
     <img src="" th:attr="src=@{${pet.imagemPet}}" alt="">
 	
@@ -25,7 +27,6 @@
     <form action="/alimentar" method="GET">
         <button>Alimentar</button>
     </form>
-
     
     <form action="/evoluir" method="GET" >
         <button>Evoluir</button>
