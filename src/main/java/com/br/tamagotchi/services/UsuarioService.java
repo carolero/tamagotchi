@@ -11,9 +11,16 @@ public class UsuarioService {
 	
 	@Autowired
 	private UsuarioRepository usuarioRepository;
+	@Autowired
+	private PerguntaService perguntaService;
 	
 	public Usuario buscarPorId(Integer id) {
 		return usuarioRepository.findById(id).get();
+	}
+	
+	public void ganharPontosPorAcerto(Usuario usuario) {
+		int pontosGanhos = perguntaService.gerarPontuacao();
+		usuario.setPontos(usuario.getPontos() + pontosGanhos);
 	}
 
 }

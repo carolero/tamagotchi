@@ -29,6 +29,12 @@ public class PetService {
 		String mensagem = pet.tentarEvoluir();
 		petRepository.save(pet);
 		return mensagem;
-		
 	}
+	
+	public void aumentarFomeDoPet(Pet pet) {
+		int pontosDeFome = 3;
+		pet.setFome(pet.getFome() + pontosDeFome);
+		petRepository.save(pet);
+	}
+	
 }
