@@ -53,7 +53,7 @@ public class PetController {
 		return modelAndView;
 	}
 
-	@PostMapping("/evoluir")
+	@GetMapping("/evoluir")
 	public ModelAndView evoluir(HttpSession session) {
 		ModelAndView model = new ModelAndView("redirect:/");
 		Usuario usuario = (Usuario) session.getAttribute("usuario");

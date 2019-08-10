@@ -20,7 +20,6 @@
 
     <img src="" th:attr="src=@{${pet.imagemPet}}" alt="">
 	
-    <!-- <a href="" th:attr="href=@{'/pergunta/'+{id}(id=${idPergunta)}}">Ir para perguntas</a> -->
     <a th:href="@{/pergunta/{id}(id=${idPergunta})}">Ir para perguntas</a>
 
     <form action="/alimentar" method="GET">
@@ -28,7 +27,7 @@
     </form>
 
     
-    <form action="/evoluir" method="POST" >
+    <form action="/evoluir" method="GET" >
         <button>Evoluir</button>
     </form>
 	

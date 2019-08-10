@@ -28,7 +28,7 @@ public class PerguntaController {
 	@GetMapping("/cadastrar/pergunta")
 	public ModelAndView exibirFormularioCadastroPergunta(HttpSession session) {
 		Usuario usuario = (Usuario)session.getAttribute("usuario");
-		if(usuario != null) {
+		if(usuario != null && usuario.isAdministrador()) {
 			ModelAndView modelAndView = new ModelAndView("cadastrar-pergunta.html");
 			return modelAndView;
 		} else {
