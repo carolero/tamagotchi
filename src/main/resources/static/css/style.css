@@ -1,0 +1,75 @@
+* {
+    outline: none;
+}
+
+body {
+    background-color: #9ae44d;
+    background-image: url(https://i.imgur.com/aS0WnWZ.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.navbar img {
+    margin-top: 2px;
+    margin-left: 10px;
+    height: 60px;
+    width: auto;
+}
+
+.mensagem li {
+    padding: 20px 20px;
+    color: #fff;
+    background-color: rgba(253, 113, 113, 0.644);
+}
+
+.center-session .cadastro ::placeholder {
+    color: #000;
+}
+
+.center-session {
+    margin-top: 25px;
+    height: 415px;
+}
+
+.center-session {
+    padding: 0px 0px 15px 15px;
+}
+
+.center-session h2 {
+    position: relative;
+    font-size: 40px;
+    text-transform: uppercase;
+    font-family: 'Baloo Chettan', cursive;
+    color: #99C84C;
+}
+
+.center-session .cadastro p {
+    font-size: 20px;
+    position: relative;
+    color: rgb(36, 154, 184);
+    font-family: 'Unica One', cursive;
+}
+
+.center-session button {
+    background-color: #c06639;
+}
+
+.center-session button:hover {
+    background-color:  	#aa582f;
+}
+
+.center-session i {
+    margin-left: 5px;
+}
+
+.cadastro {
+    padding: 20px 20px;
+    background-color: rgba(255, 255, 255, 0.877);
+}
+
+.main-img {
+    height: 400px;
+    width: auto;
+    margin-top: 45px;
+}
