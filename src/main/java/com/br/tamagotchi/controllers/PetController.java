@@ -61,7 +61,8 @@ public class PetController {
 		ModelAndView model = new ModelAndView("redirect:/");
 		Usuario usuario = (Usuario) session.getAttribute("usuario");
 		Pet pet = (Pet) usuario.getPet();
-		petService.evoluir(pet.getId());
+		petService.tentarEvoluir(pet.getId());
+		pet.setImagemPet("https://i.imgur.com/9ftAP58.png");
 		petRepository.save(pet);
 		return model;
 		

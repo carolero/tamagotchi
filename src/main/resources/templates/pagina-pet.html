@@ -51,7 +51,8 @@
         <div class="box-dois col s4 center">
             <div class="row">
                 <img src="" th:attr="src=@{${pet.imagemPet}}" class="main-img">
-                <p th:text="${pet.nomePet}"></p>
+                <p class="col s6" th:text="${pet.nomePet}"></p>
+                <p class="col s6" th:text="${pet.levelPet}"></p>
                 <table>
                     <tr>
                         <td>

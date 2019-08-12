@@ -83,17 +83,12 @@ public class Pet implements Serializable {
 		this.usuario = usuario;
 	}
 	
-	public String tentarEvoluir() {
-		if(xpPet == 100) {
-			this.evoluido = true;
-			this.imagemPet = "/img/dragaozinho.png";
-			this.xpPet = 0;
-			return "Pet evoluido";
-		} 
-		
-		return "Não pode evoluir";
-		
+	public boolean isEvoluido() {
+		return evoluido;
 	}
-	
+
+	public void setEvoluido(boolean evoluido) {
+		this.evoluido = evoluido;
+	}	
 
 }
