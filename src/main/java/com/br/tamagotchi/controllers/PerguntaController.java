@@ -88,7 +88,13 @@ public class PerguntaController {
 		ModelAndView modelAndView = new ModelAndView("pergunta.html");
 		Usuario usuario = (Usuario) session.getAttribute("usuario");
 		modelAndView.addObject("pergunta", perguntaService.mostrarPergunta(idPergunta));
-		modelAndView.addObject("mensagem", perguntaService.verificarResposta(idPergunta, resposta, usuario));
+		String mensagem = perguntaService.verificarResposta(idPergunta, resposta, usuario);
+		if(mensagem == "Parabéns! Está certo :)") {
+			ModelAndView modelAndViewParabens = new ModelAndView("mensagem-parabens.html");
+			modelAndView.addObject("mensagem", mensagem);
+			return modelAndViewParabens;
+		}
+		modelAndView.addObject("mensagem", mensagem);
 		return modelAndView;
 	}
 }

@@ -1,24 +1,68 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://kit.fontawesome.com/a4d447a6ab.js"></script>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed|Unica+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <title>Tamagotchi</title>
 </head>
+
 <body>
 
-    <div th:each="mensagem : ${mensagens}">
-        <p th:text="${mensagem}"></p>
+    <nav class="navbar" style="background-color: #c06639ea">
+        <div class="nav-wrapper">
+            <a href="/" class="brand-logo"><img src="" th:attr="src=@{/img/zup.png}"></a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a href="/login">Logar</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="center-session row">
+        <div class="cadastro col s6 center">
+            <div class="row">
+                <form class="col s12" method="POST">
+                    <div class="row">
+                        <h2>Bem vindo ao Zupgotchi!</h2>
+                        <p>Ainda não tem uma conta? Cadastre-se</p>
+                        <div class="input-field col s12">
+                            <input type="text" name="apelido" class="validate" placeholder="Apelido">
+                        </div>
+                        <div class="input-field col s6">
+                            <input type="text" name="nome" class="validate" placeholder="Seu nome">
+                        </div>
+                        <div class="input-field col s6">
+                            <input type="password" name="senha" class="validate" placeholder="Senha">
+                        </div>
+                        <div class="input-field col s12">
+                            <input id="icon_prefix" type="text" name="nomePet" class="validate"
+                                placeholder="Nome do seu pet">
+                        </div>
+                    </div>
+                    <button class="btn waves-effect waves-light" type="submit" name="action">Cadastrar-se
+                        <i class="fas fa-paw"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+        <div class="col s6 center">
+            <img src="" th:attr="src=@{/img/dragaozinho.png}" class="main-img">
+        </div>
     </div>
 
-    <form method="POST">
-        <p>Nome: <input type="text" name="nome"></p>
-        <p>Apelido: <input type="text" name="apelido"></p>
-        <p>Senha: <input type="password" name="senha"></p>
-        <p>Nome do pet: <input type="text" name="nomePet"></p>
-        <button type="submit">Cadastrar-se</button>
-    </form>
-    
+    <div class="row">
+        <div class="col s12 center">
+            <ul class="mensagem" th:each="mensagem : ${mensagens}">
+                <li th:text="${mensagem}"></li>
+            </ul>
+        </div>
+    </div>
+
 </body>
+
 </html>
