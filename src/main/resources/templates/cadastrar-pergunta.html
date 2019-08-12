@@ -1,24 +1,61 @@
 <!DOCTYPE html>
 <html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <script src="https://kit.fontawesome.com/a4d447a6ab.js"></script>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/login.css}">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed|Unica+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <title>Tamagotchi</title>
 </head>
+
 <body>
 
-    <div th:each="mensagens : ${mensagem}">
-        <p th:text="${mensagens}"></p>
+    <nav class="navbar" style="background-color: #c06639ea">
+        <div class="nav-wrapper">
+            <a href="/" class="brand-logo"><img src="" th:attr="src=@{/img/zup.png}"></a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a href="/"></a>Voltar</li>
+                <li><a href="/login">Sair</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="row">
+        <div class="col s12 center">
+            <ul class="mensagem" th:each="msg : ${mensagem}">
+                <li th:text="${msg}"></li>
+            </ul>
+        </div>
     </div>
 
-    <div>
-        <form method="POST">
-            <p>Pergunta: <input type="text" name="quest"></p>
-            <p>Resposta: <input type="text" name="resposta"></p>
-            <button type="submit">Cadastrar pergunta</button>
-        </form>
+    <div class="center-session row">
+        <div class="cadastro col s6 center">
+            <div class="row col s12">
+                <h2>Cadastro de perguntas!</h2>
+                <form autocomplete="off" class="col s12" method="POST">
+                    <div class="row">
+                        <div class="input-field col s6">
+                            <input autocomplete="off" name="quest" type="text" class="validate"
+                                placeholder="Escreva aqui o título da pergunta">
+                        </div>
+                        <div class="input-field col s6">
+                            <input autocomplete="off" name="resposta" type="text" class="validate"
+                                placeholder="E aqui a resposta para ela">
+                        </div>
+                    </div>
+                    <button class="btn waves-effect waves-light" type="submit">Cadastrar pergunta
+                        <i class="fas fa-question-circle"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
     </div>
 
 </body>
+
 </html>

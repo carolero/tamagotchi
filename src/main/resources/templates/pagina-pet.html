@@ -18,6 +18,7 @@
         <div class="nav-wrapper">
             <a href="/" class="brand-logo"><img src="" th:attr="src=@{/img/zup.png}"></a>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><span th:if="${usuario.administrador == true}"><a href="/cadastrar/pergunta">Cadastrar perguntas</a></span></li>
                 <li><a href="/login">Sair</a></li>
             </ul>
         </div>

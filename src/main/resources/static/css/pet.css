@@ -11,6 +11,11 @@ body {
     font-size: 10px;
 }
 
+.box a {
+    text-decoration: none;
+    color: #fff;
+}
+
 .box, .box-dois p {
     font-weight: bold;
     color: #fff;
@@ -19,8 +24,6 @@ body {
     width: 200px;
     background-color: rgba(255, 255, 255, 0.103);
 }
-
-
 
 .box-dois {
     padding: 20px 20px;
