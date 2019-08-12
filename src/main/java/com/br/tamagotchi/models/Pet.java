@@ -94,7 +94,8 @@ public class Pet implements Serializable {
 	public String tentarEvoluir() {
 		if(xpPet == 100) {
 			this.evoluido = true;
-			this.imagemPet = "/img/nivel2.jpg";
+			this.imagemPet = "/img/dragaozinho.png";
+			this.xpPet = 0;
 			return "Pet evoluido";
 		} 
 		
