@@ -27,7 +27,6 @@ public class Usuario implements Serializable {
 	@Size(min = 4, message = "Nome precisa ter no mínimo 4 letras")
 	private String nome;
 
-	private Integer comida = 0;
 	private Integer level = 0;
 	private Integer pontos = 0;
 	
@@ -61,15 +60,7 @@ public class Usuario implements Serializable {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-
-	public Integer getComida() {
-		return comida;
-	}
-
-	public void setComida(Integer comida) {
-		this.comida = comida;
-	}
-
+	
 	public Integer getLevel() {
 		return level;
 	}
