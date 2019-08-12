@@ -24,10 +24,18 @@ public class PetService {
 		return "Seu pet foi adicionado";
 	}
 	
-	public String evoluir(int id) {
+	public String tentarEvoluir(int id) {
 		Pet pet = petRepository.findById(id).get();
-		String mensagem = pet.tentarEvoluir();
-		petRepository.save(pet);
+		String mensagem;
+		if(pet.getXpPet() == 100) {
+			pet.setXpPet(0);
+			pet.setEvoluido(true);
+			petRepository.save(pet);
+			mensagem = "Pet evoluido";
+		} else {
+			mensagem = "Sua experiência está baixa demais para evoluir";
+		}
+
 		return mensagem;
 	}
 	
@@ -38,7 +46,7 @@ public class PetService {
 	}
 	
 	public void aumetarXp(Pet pet) {
-		int xpGanha = 20;
+		int xpGanha = 50;
 		pet.setXpPet(pet.getXpPet() + xpGanha);
 		petRepository.save(pet);
 	}
