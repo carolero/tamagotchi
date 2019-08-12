@@ -12,6 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.br.tamagotchi.services.AlimentarPetService;
 import com.br.tamagotchi.models.Pet;
 import com.br.tamagotchi.models.Usuario;
+import com.br.tamagotchi.repositories.PetRepository;
 import com.br.tamagotchi.services.PerguntaService;
 import com.br.tamagotchi.services.PetService;
 import com.br.tamagotchi.services.UsuarioService;
@@ -26,6 +27,8 @@ public class PetController {
 	private UsuarioService usuarioService;
 	@Autowired
 	private PetService petService; 
+	@Autowired
+	private PetRepository petRepository;
 	
 	@GetMapping("/")
 	public ModelAndView exibirPaginaPet(HttpSession session) {
@@ -57,7 +60,9 @@ public class PetController {
 	public ModelAndView evoluir(HttpSession session) {
 		ModelAndView model = new ModelAndView("redirect:/");
 		Usuario usuario = (Usuario) session.getAttribute("usuario");
-		petService.evoluir(usuario.getPet().getId());
+		Pet pet = (Pet) usuario.getPet();
+		petService.evoluir(pet.getId());
+		petRepository.save(pet);
 		return model;
 		
 	}

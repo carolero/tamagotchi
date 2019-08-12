@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.br.tamagotchi.models.Pergunta;
+import com.br.tamagotchi.models.Pet;
 import com.br.tamagotchi.models.Usuario;
 import com.br.tamagotchi.repositories.PerguntaRepository;
 import com.br.tamagotchi.repositories.PetRepository;
@@ -67,6 +68,7 @@ public class PerguntaService {
 			user.getPerguntasRespondidas().add(idPergunta);
 			usuarioService.ganharPontosPorAcerto(usuario);
 			petService.aumentarFomeDoPet(user.getPet());
+			petService.aumetarXp(user.getPet());
 			usuarioRepository.save(usuario);
 			return "Parabéns! Está certo :)";
 		} else {

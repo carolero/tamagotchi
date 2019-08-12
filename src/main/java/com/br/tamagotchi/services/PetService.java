@@ -37,4 +37,10 @@ public class PetService {
 		petRepository.save(pet);
 	}
 	
+	public void aumetarXp(Pet pet) {
+		int xpGanha = 20;
+		pet.setXpPet(pet.getXpPet() + xpGanha);
+		petRepository.save(pet);
+	}
+	
 }
