@@ -63,6 +63,7 @@ public class PetController {
 		Pet pet = (Pet) usuario.getPet();
 		petService.tentarEvoluir(pet.getId());
 		pet.setImagemPet("https://i.imgur.com/9ftAP58.png");
+		pet.setLevelPet(1);
 		petRepository.save(pet);
 		return model;
 		

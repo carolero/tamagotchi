@@ -30,7 +30,6 @@ public class PetService {
 		if(pet.getXpPet() == 100) {
 			pet.setXpPet(0);
 			pet.setEvoluido(true);
-			pet.setLevelPet(2);
 			petRepository.save(pet);
 			mensagem = "Pet evoluido";
 		} else {
