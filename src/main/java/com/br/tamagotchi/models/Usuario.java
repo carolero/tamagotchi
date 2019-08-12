@@ -1,7 +1,10 @@
 package com.br.tamagotchi.models;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -24,12 +27,13 @@ public class Usuario implements Serializable {
 	@Size(min = 4, message = "Nome precisa ter no mínimo 4 letras")
 	private String nome;
 
-
-
-	private Integer xp = 0;
-	private Integer comida = 0;
 	private Integer level = 0;
 	private Integer pontos = 0;
+	
+	private boolean administrador = false;
+	
+	@ElementCollection
+	private List<Integer> perguntasRespondidas = new ArrayList<Integer>();
 
 	@OneToOne(mappedBy = "usuario")
 	private Login login;
@@ -40,7 +44,7 @@ public class Usuario implements Serializable {
 	public Usuario() {
 
 	}
-
+	
 	public Integer getId() {
 		return id;
 	}
@@ -56,23 +60,7 @@ public class Usuario implements Serializable {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-
-	public Integer getXp() {
-		return xp;
-	}
-
-	public void setXp(Integer xp) {
-		this.xp = xp;
-	}
-
-	public Integer getComida() {
-		return comida;
-	}
-
-	public void setComida(Integer comida) {
-		this.comida = comida;
-	}
-
+	
 	public Integer getLevel() {
 		return level;
 	}
@@ -87,6 +75,22 @@ public class Usuario implements Serializable {
 
 	public void setPontos(Integer pontos) {
 		this.pontos = pontos;
+	}
+	
+	public boolean isAdministrador() {
+		return administrador;
+	}
+
+	public void setAdministrador(boolean administrador) {
+		this.administrador = administrador;
+	}
+
+	public List<Integer> getPerguntasRespondidas() {
+		return perguntasRespondidas;
+	}
+
+	public void setPerguntasRespondidas(List<Integer> perguntasRespondidas) {
+		this.perguntasRespondidas = perguntasRespondidas;
 	}
 
 	public Login getLogin() {
@@ -103,5 +107,14 @@ public class Usuario implements Serializable {
 
 	public void setPet(Pet pet) {
 		this.pet = pet;
+	}
+	
+	@Override
+	public String toString() {
+		String modelo = "OLa";
+		modelo += this.nome;
+		modelo += this.perguntasRespondidas;
+		
+		return modelo;
 	}
 }

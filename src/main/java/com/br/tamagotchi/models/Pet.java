@@ -25,9 +25,11 @@ public class Pet implements Serializable {
 	@Size(min = 2, message = "O nome do seu pet precisa ter pelo menos 2 letras")
 	private String nomePet;
 
+	private String imagemPet = "/img/nivel1.png";
 	private int fome = 0;
 	private int xpPet = 0;
 	private int levelPet = 0;
+	private boolean evoluido = false;
 
 	@OneToOne(cascade = {CascadeType.ALL})
 	private Usuario usuario;
@@ -35,7 +37,7 @@ public class Pet implements Serializable {
 	public Pet() {
 
 	}
-
+	
 	public Integer getId() {
 		return id;
 	}
@@ -48,6 +50,14 @@ public class Pet implements Serializable {
 	public void setNomePet(String nomePet) {
 		this.nomePet = nomePet;
 	}
+	public String getImagemPet() {
+		return imagemPet;
+	}
+
+	public void setImagemPet(String imagemPet) {
+		this.imagemPet = imagemPet;
+	}
+
 	public int getFome() {
 		return fome;
 	}
@@ -71,6 +81,26 @@ public class Pet implements Serializable {
 	}
 	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
+	}
+	
+	public boolean isEvoluido() {
+		return evoluido;
+	}
+
+	public void setEvoluido(boolean evoluido) {
+		this.evoluido = evoluido;
+	}
+
+	public String tentarEvoluir() {
+		if(xpPet == 100) {
+			this.evoluido = true;
+			this.imagemPet = "/img/dragaozinho.png";
+			this.xpPet = 0;
+			return "Pet evoluido";
+		} 
+		
+		return "Não pode evoluir";
+		
 	}
 
 }

@@ -16,7 +16,7 @@ public class LoginService {
 	@Autowired
 	private LoginRepository loginRepo;
 
-	public String cadastrarLogin(Usuario user, Login login, @Valid Pet pet) {
+	public String cadastrarLogin(Usuario user, Login login) {
 		login.setUsuario(user);
 		loginRepo.save(login);
 		return "Login cadastrado";
@@ -26,4 +26,7 @@ public class LoginService {
 	public Login buscarLogin(Login login) {
 		return loginRepo.findByApelidoAndSenha(login.getApelido(), login.getSenha()).get();
 	}
+
+
+
 }

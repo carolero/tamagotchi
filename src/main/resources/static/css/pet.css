@@ -1,0 +1,87 @@
+body {
+    background-image: url(https://i.imgur.com/ptuhdKu.jpg);
+}
+
+.box {
+    position: relative;
+    top: 35px;
+}
+
+.box p {
+    font-size: 10px;
+}
+
+.box a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.box, .box-dois p {
+    font-weight: bold;
+    color: #fff;
+    text-transform: uppercase;
+    margin-left: 30%;
+    width: 200px;
+    background-color: rgba(255, 255, 255, 0.103);
+}
+
+.box-dois {
+    padding: 20px 20px;
+}
+
+.box-dois table td:first-child {
+    text-align: right;
+}
+
+.center-session img {
+    height: 300px;
+    width: auto;
+    margin-top: 45px;
+}
+
+.box-tres h4 {
+    color: #fff;
+    margin-top: 50px;
+    padding: 20px;
+    padding-right: 200px;
+    background-color: rgba(255, 255, 255, 0.103);
+}
+
+.descricao {
+    color: #fff;
+    width: 380px;
+    position: relative;
+    bottom: 20px;
+    background-color: rgba(24, 38, 39, 0.233);
+}
+
+.box-tres table {
+    width: 380px!important;
+}
+
+.box-tres td {
+    color: #fff;
+    font-weight: bold;
+    background-color: rgba(255, 255, 255, 0.103);
+    width: 280px;
+}
+
+.box-tres td:first-child {
+    background-color: rgba(255, 255, 255, 0.103);
+}
+
+.box-tres td:nth-child(2) {
+    text-align: right;
+}
+
+.box-tres a {
+    text-decoration: none;
+    color: #fff;
+    background-color: #c06639ea;
+    padding: 10px;
+    margin-top: 10px;
+}
+
+td, th {
+    padding: 0px 5px!important;
+}

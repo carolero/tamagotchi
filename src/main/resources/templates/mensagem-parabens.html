@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://kit.fontawesome.com/a4d447a6ab.js"></script>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/login.css}">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed|Unica+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <title>Tamagotchi</title>
+</head>
+
+<body>
+
+    <nav class="navbar" style="background-color: #c06639ea">
+        <div class="nav-wrapper">
+            <a href="/" class="brand-logo"><img src="" th:attr="src=@{/img/zup.png}"></a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a href="/">Voltar</a></li>
+                <li><a href="/login">Sair</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="center-session row">
+        <div class="cadastro col s6 center">
+            <div class="row col s12">
+                <h2>Você acertou, parabéns!</h2>
+                <img src="https://media.giphy.com/media/XB6pGqvOfJqY8/200.gif" alt="">
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
