@@ -25,6 +25,6 @@ public class LoginTeste {
 	}
 	@Test
 	public void testarGetSenha() {
-		assertEquals(12345678,login.getSenha());
+		assertEquals("12345678",login.getSenha());
 	}
 }
